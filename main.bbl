@@ -45,5 +45,31 @@
     \field{urlmonth}{02}
     \field{urlyear}{2022}
   \endentry
+
+  \entry{papula}{book}{}
+    \name{author}{1}{}{%
+      {{hash=PL}{%
+         family={Papula},
+         familyi={P\bibinitperiod},
+         given={Lothar},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Vieweg}%
+    }
+    \strng{namehash}{PL1}
+    \strng{fullhash}{PL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelalpha}{Pap17}
+    \field{edition}{12. Auflage}
+    \field{isbn}{978-3-658-16194-1}
+    \field{title}{Mathematische Formelsammlung}
+    \list{location}{1}{%
+      {M{\"u}nchen}%
+    }
+    \field{year}{2017}
+  \endentry
 \enddatalist
 \endinput
