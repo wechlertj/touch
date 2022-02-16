@@ -80,14 +80,25 @@
 		Das Wandlungsergebnis befindet sich in den 8 Bit des Registers \texttt{ADCL} und den beiden niederwertigsten Bits des Registers \texttt{ADCH}.
 		Da jede weitere Operation, die eines der beiden Register schreibend manipulieren würde -- wie etwa eine nachfolgende Konvertierung durch einen beliebigen anderen ADC -- den Inhalt der Register und damit das Wandlungsergebnis unbrauchbar machen würde, wird unmittelbar nach Verlassen der Schleife lesend auf die beiden Register zugegriffen.
 		Sobald lesend auf das niederwertige Register \texttt{ADCL} zugegriffen wird, wird der Inhalt des höherwertigen Registers gegen Schreibzugriffe geschützt, bis auch auf jenes lesend zugegriffen wurde.
-		Umgesetzt wird dies durch Erstellen einer 16Bit breiten lokalen Variable \texttt{val}, in deren ersten 8 Bit der Inhalt von \texttt{ADCL} geschrieben wird.
+		Umgesetzt wird dies durch Erstellen einer 16Bit breiten lokalen Variable \texttt{val}, in deren niederwertigeren 8 Bit der Inhalt von \texttt{ADCL} geschrieben wird.
 		Anschließend wird \texttt{val}, um 8 Bit verschoben, mit dem Inhalt von \texttt{ADCH} oder-verknüpft manipuliert.
-		
 
-		Um eine Messung zu verhindern während der Touchscreen gerade nicht berührt wird, werden innerhalb der Funktion \texttt{isFingered()} die Pins PF4-PF7 wie in \cref{fig:fingered} konfiguriert.
+		Um eine Messung zu verhindern, während der Touchscreen gerade nicht berührt wird, werden innerhalb der Funktion \texttt{isFingered()} die Pins \texttt{PF4}-\texttt{PF7} wie in \cref{fig:fingered} konfiguriert (vgl. \cref{fig:schaltbild}).
 		\begin{figure}[h]
 			\centering
-			\includesvg[width=.8\textwidth]{fig/sch_fingering.svg}
-			\caption{Schaltbild der Pinzustände zur Überprüfung einer validen Berührung.}
+			\includesvg[width=.7\textwidth]{fig/sch_fingering.svg}
+			\caption{Pinkonfigurationen und Schaltbild zur Überprüfung einer validen Berührung.}
 			\label{fig:fingered}
+		\end{figure}
+		Wie \cref{fig:schaltbild} zu entnehmen sind hier Pin \texttt{PF7} als Ausgang und LOW und PF7 als Eingang mit aktiviertem Pull-Up konfiguriert während Pins \texttt{PF5} und \texttt{PF6} als digitale Eingänge mit hoher Eingangsimpedanz konfiguriert sind und so für die Anwendung als inexistent betrachtet werden können.
+		Über den Pull-Up Widerstand auf \(U_{vcc}\) gelegt liefert der ADC in dieser Konfiguration stets einen Wert von 1023 was dem Maximum seines Messbereichs entspricht.
+		Da bei einer validen Berührung des Touchscreens selbst im ungünstigsten Fall den Eingang des ADC über einen Serienwiderstand von \(\SI{850}{\ohm} + \SI{600}{\ohm}\) effektiv auf Masse legt, wird das Wandlungsergebnis nahe am unteren Wertebereich liegen und ermöglicht so eine sichere Detektion einer Berührung.
+		Es folgt, dass der absolute Wert des Wandlungsergebnisses hier nicht von weiterem Interesse ist und lediglich gegen einen vordefinierten, empirisch ermittelten Wert verglichen wird.\par\medskip
+
+		Im Falle einer detektierten Berührung wird die Funktion \texttt{readX()} aufgerufen innerhalb derer die
+		\begin{figure}[h]
+			\centering
+			\includesvg[width=.7\textwidth]{fig/sch_read.svg}
+			\caption{Schaltbild zur Messung der Position entlang der horizontalen Achse des Touchscreens.}
+			\label{fig:readX schaltbild}
 		\end{figure}
