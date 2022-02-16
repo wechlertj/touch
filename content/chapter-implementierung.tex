@@ -32,7 +32,7 @@
 		\end{align}
 
 		Dem Datenblatt des verwendeten Touchscreens ist zu entnehmen, dass mit einer maximalen Eingangsimpedanz zum ADC von \SI{850}{\ohm} (x-Richtung) zu rechnen ist \cite{FUJITSU.touchscreen.datasheet}.
-		\Cref{fig:analog input circuitry} zeigt die interne Eingangsverschaltung der ADC der verwendeten MCU. Die Kapazität \(C_{S/H}\) gilt es in der Zeit \(t_{Sample}\) auf einen Wert \(\frac{U_0}{2} \pm \frac{1}{2}LSB\) zu laden.
+		\cref{fig:analog input circuitry} zeigt die interne Eingangsverschaltung der ADC der verwendeten MCU. Die Kapazität \(C_{S/H}\) gilt es in der Zeit \(t_{Sample}\) auf einen Wert \(\frac{U_0}{2} \pm \frac{1}{2}LSB\) zu laden.
 
 		\begin{gather}
 			\frac{U_0}{2} - \frac{1}{2}LSB = U_0 \left( 1 - e^{-\frac{t_{Sample}}{RC}} \right) \nonumber \\
