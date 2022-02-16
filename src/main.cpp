@@ -86,7 +86,7 @@ void loop() {
       // Mouse control values are only send if MOUSE_EN (PIND6) is pulled LOW,
       // else positional vales are sent over serial
       if (!(PIND & (1<<MOUSE_EN))) {
-        xval = myMap(xval, XMIN, XMAX, -MOUSE_SPEED, MOUSE_SPEED);
+        xval = myMap(xval, XMIN, XMAX, MOUSE_SPEED, -MOUSE_SPEED);
         yval = myMap(yval, YMIN, YMAX, MOUSE_SPEED, -MOUSE_SPEED);
         Mouse.move(xval, yval, 0);
         delay(MOUSE_DELAY);

@@ -1,14 +1,17 @@
 \chapter{Implementierung}
 	Aus den oben beschrieben Überlegungen und dem in \cref{fig:flowchart} gezeigten grundlegenden Programmablauf folgt die nachfolgend beschriebene Implementierung in Software.
+	Zeilen 7-9 der \textit{main.cpp} importieren neben der online verfügbaren Bibliothek \texttt{mouse.h}, die die nötigen Funktionalitäten zur Steuerung der Maus des Host-Computers zur Verfügung stellt, die beiden Header-files \texttt{defines.h} und \texttt{helper\_functions.h}.
+	\texttt{defines.h} beinhaltet Konstanten in Form von Compilerdefinitionen, die zur Laufzeit nicht geändert werden.
+	In \texttt{helper\text\_funtions.h} bzw. \texttt{helper\text\_functions.cpp} sind die direkt mit dem Touchscreen in Zusammenhang stehenden Funktionen ausgegliedert.\par\medskip
 
-
+	Zeilen 21-23 der \texttt{main.cpp} initialisieren drei globale Variablen -- für jede Achsrichtung ein Array der Länge \texttt{OVERSAMPLING} (siehe \texttt{defines.h}) und ein Pointer, die im weiteren Verlauf zur Auswertung benötigt werden.
 
 	\section{Vorbereitung der MCU}
-		Um mögliche Fehlerquellen etwa durch \textit{cross-talking} auszuschließen, werden wie in \cite{MicrochipTechnologyInc.ATmega32U4.Datasheet.2016} auf Seite 71 beschrieben alle ungenutzten Pins in einen definierten Zustand -- hier als \textit{Input} mit aktiviertem \textit{Pull-Up} -- versetzt.
-		Als Schnittstelle zum Touchscreen kommen nur Pins an Port F zum Einsatz welche vorbereitend ebenfalls als Input, allerdings ohne Pull-Up konfiguriert werden.\par
+		Um mögliche Fehlerquellen etwa durch \textit{cross-talking} zwischen GPIOs und der ADC auszuschließen, werden wie in \cite{MicrochipTechnologyInc.ATmega32U4.Datasheet.2016} auf Seite 71 beschrieben alle ungenutzten Pins in einen definierten Zustand -- hier als \textit{Input} mit aktiviertem \textit{Pull-Up} -- versetzt.
+		Als Schnittstelle zum Touchscreen kommen nur Pins an Port F zum Einsatz welche vorbereitend ebenfalls als Input, allerdings ohne Pull-Up konfiguriert werden.\par\medskip
 
-		Zur Umsetzung werden die Timer \texttt{Timer1} und bei Nutzung der internen ADC der obligatorische ADC-Timer verwendet.
-		Letzter wird über einen eigenen Prescaler im Register \texttt{ADCSRA} konfiguriert.
+		Die internen ADC verwenden einen eigenen Timer der durch setzen der Bits \texttt{ADPSx} im \texttt{ADCSRA}-Register konfiguriert wird.
+		Diese bestimmen den Prescaler, der die CPU-Clock auf die gewünschte ADC-Frequenz herunter teilt.
 		Um die volle Auflösung der ADC sicher ausnutzen zu können, darf die Frequenz des ADC-Timers gemäß Datenblatt \SI{200}{\kilo\hertz} nicht überschreiten.
 		\begin{figure}[h]
 			\centering
@@ -49,10 +52,53 @@
 			\label{eq:samplingzeit gerechnet}
 		\end{align}
 		was sehr gut im Rahmen der gewählten ADC-Timerfrequenz liegt.
-		Ebenso deckt es sich gut mit den Angaben des Datenblattes bei Eingangsimpedanzen unterhalb von \SI{10}{\kilo\ohm} seien Samplingzeiten vernachlässigbar.
+		Ebenso deckt es sich gut mit der Angabe des Datenblattes, bei Eingangsimpedanzen unterhalb von \SI{10}{\kilo\ohm} seien Samplingzeiten vernachlässigbar.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=.8\textwidth]{fig/adc-input-circuit.png}
 			\caption[Interne Eingangsverschaltung der ADC]{Interne Eingangsverschaltung der ADC wie im Datenblatt gezeigt. Die Kapazität \(C_{S/H}\) ist hier der \textit{Sample and Hold}-Kondensator.}
 			\label{fig:analog input circuitry}
+		\end{figure}
+
+		Zuletzt wird der externe Interrupt \texttt{INT0} an Pin PD0 im Register \texttt{EIMSK} durch setzen des Bits \texttt{INT0} aktiviert und im Register \texttt{EICRA} so konfiguriert, dass er auf steigende, wie fallende Flanken reagiert.
+		Die Firmware soll in der Lage sein durch einen externen Schalter -- in \cref{fig:aufbau} Position 4 -- zwischen der Ausgabe von Koordinatenpaaren über die serielle Schnittstelle und der Steuerung der Maus des angeschlossenen PCs umschalten zu können. Zusätzlich wird die auf dem \textsc{Arduino}-Board befindliche LED als visueller Indikator des aktuellen Betriebsmodus genutzt.
+		Das An- und Abschalten der LED erfolgt in der entsprechenden Interrupt-Serviceroutine.\par
+
+		Zuletzt werden mit den befehlen
+		\begin{lstlisting}[language=C++]
+			Serial.begin(115200);
+			Mouse.begin();
+		\end{lstlisting}
+		die oben erwähnte serielle Schnittstelle, sowie die Emulation der Maus initialisiert.
+
+	\section{Hauptschleife und Unterfunktionen}
+		Im Programmablauf werden in drei verschiedenen Situationen Konversionen der ADC benötigt.
+		Während es sich hier durchaus um verschiedene physische ADC handeln kann, ist der grundlegende Ablauf wie etwa das Auslesen des Wandlungsergebnisses aus den entsprechenden Registern stets gleich.
+		Diese sich wiederholende Routine leistet die Funktion \texttt{getADC()} in den Zeilen 35 bis 45 der \texttt{helper\_functions.cpp}.
+		In zwei Schritten wird hier durch Setzen der Bits \texttt{ADSC} und \texttt{ADEN} des Registers \texttt{ADCSRA} die ADC-Peripherie aktiviert und eine Konvertierung am zuvor verbundenen ADC-Eingang gestartet.
+		Die folgende Schleife überprüft periodisch den Zustand des Bits \texttt{ADSC}, welches nach Beendigung einer Konvertierung vom System automatisch auf 0 zurückgesetzt wird.\par
+		Das Wandlungsergebnis befindet sich in den 8 Bit des Registers \texttt{ADCL} und den beiden niederwertigsten Bits des Registers \texttt{ADCH}.
+		Da jede weitere Operation, die eines der beiden Register schreibend manipulieren würde -- wie etwa eine nachfolgende Konvertierung durch einen beliebigen anderen ADC -- den Inhalt der Register und damit das Wandlungsergebnis unbrauchbar machen würde, wird unmittelbar nach Verlassen der Schleife lesend auf die beiden Register zugegriffen.
+		Sobald lesend auf das niederwertige Register \texttt{ADCL} zugegriffen wird, wird der Inhalt des höherwertigen Registers gegen Schreibzugriffe geschützt, bis auch auf jenes lesend zugegriffen wurde.
+		Umgesetzt wird dies durch Erstellen einer 16Bit breiten lokalen Variable \texttt{val}, in deren niederwertigeren 8 Bit der Inhalt von \texttt{ADCL} geschrieben wird.
+		Anschließend wird \texttt{val}, um 8 Bit verschoben, mit dem Inhalt von \texttt{ADCH} oder-verknüpft manipuliert.
+
+		Um eine Messung zu verhindern, während der Touchscreen gerade nicht berührt wird, werden innerhalb der Funktion \texttt{isFingered()} die Pins \texttt{PF4}-\texttt{PF7} wie in \cref{fig:fingered} konfiguriert (vgl. \cref{fig:schaltbild}).
+		\begin{figure}[h]
+			\centering
+			\includesvg[width=.7\textwidth]{fig/sch_fingering.svg}
+			\caption{Pinkonfigurationen und Schaltbild zur Überprüfung einer validen Berührung.}
+			\label{fig:fingered}
+		\end{figure}
+		Wie \cref{fig:schaltbild} zu entnehmen sind hier Pin \texttt{PF7} als Ausgang und LOW und PF7 als Eingang mit aktiviertem Pull-Up konfiguriert während Pins \texttt{PF5} und \texttt{PF6} als digitale Eingänge mit hoher Eingangsimpedanz konfiguriert sind und so für die Anwendung als inexistent betrachtet werden können.
+		Über den Pull-Up Widerstand auf \(U_{vcc}\) gelegt liefert der ADC in dieser Konfiguration stets einen Wert von 1023 was dem Maximum seines Messbereichs entspricht.
+		Da bei einer validen Berührung des Touchscreens selbst im ungünstigsten Fall den Eingang des ADC über einen Serienwiderstand von \(\SI{850}{\ohm} + \SI{600}{\ohm}\) effektiv auf Masse legt, wird das Wandlungsergebnis nahe am unteren Wertebereich liegen und ermöglicht so eine sichere Detektion einer Berührung.
+		Es folgt, dass der absolute Wert des Wandlungsergebnisses hier nicht von weiterem Interesse ist und lediglich gegen einen vordefinierten, empirisch ermittelten Wert verglichen wird.\par\medskip
+
+		Im Falle einer detektierten Berührung wird die Funktion \texttt{readX()} aufgerufen innerhalb derer die
+		\begin{figure}[h]
+			\centering
+			\includesvg[width=.7\textwidth]{fig/sch_read.svg}
+			\caption{Schaltbild zur Messung der Position entlang der horizontalen Achse des Touchscreens.}
+			\label{fig:readX schaltbild}
 		\end{figure}

@@ -10,7 +10,7 @@ bool isFingered(void){
 	*/
 
 	DDRF = 0x80;											// Set PF7 as output, others as input
-	PORTF = 0x10;											// Pull-up at ADC5 and set PF7 LOW
+	PORTF = 0x10;											// Pull-up at ADC4 and set PF7 LOW
 	ADMUX = 0x44;											// Connect ADC4
 
 	int check = getADC();
