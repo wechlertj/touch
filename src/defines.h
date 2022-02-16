@@ -1,22 +1,30 @@
 #pragma once
 
 // Range of raw ADC values accross the touch screen area
-#define XMIN 69.0
-#define XMAX 954.0
-#define YMIN 102.0
-#define YMAX 913.0
+#define XMIN 68.0
+#define XMAX 961.0
+#define YMIN 108.0
+#define YMAX 917.0
 
 // Size of the arrays holding ADC readings
-#define OVERSAMPLING 40								// Time to get one xy-pair: ((OVERSAMPLING*2)+2)/ADC_freq
-#define CLAMP 5
+#ifdef FILTERING
+#define OVERSAMPLING 15
+#else
+#define OVERSAMPLING 1
+#endif
+#define CLAMP 2
 
 // Physical dimensions of the sensitive area of the touch screen (in mm)
-#define WIDTH 212.2
-#define HEIGHT 159.4
+// Datasheet "Guaranteed active area":
+// #define WIDTH 212.2
+// #define HEIGHT 159.4
+// Empirical values below:
+#define WIDTH 214.5
+#define HEIGHT 161.0
 
 // Offsets to place the coordinate origin at the center of the sensitive area
-#define VOFFSET -14.0
-#define HOFFSET 19.0
+#define HOFFSET {(XMAX-XMIN)*0.5}
+#define VOFFSET {(YMAX-YMIN)*0.5}
 
 // Mouse stuff
 #define MOUSE_EN PIND0

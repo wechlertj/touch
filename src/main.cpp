@@ -2,10 +2,11 @@
 #include <Arduino.h>
 #define ARDUINO_H
 #endif
+#define MAPPING
+#define FILTERING
 #include "defines.h"
-#include "FourWireRTP.h"
-#include <Mouse.h>
-
+#include "helper_functions.h"
+#include "Mouse.h"
 /*
 Port mapping: A0 - A3 -> PF7 - PF4
 Pin   Port    Color   Position
@@ -15,26 +16,15 @@ A1    PF6     brn     x_ri
 A2    PF5     red     y_up
 A3    PF4     ylw     y_lo
 
-ToDo:
-[x] Improve filtering (?)
-    Note: added median filter
-[x] Fix touch-release bug
-[x] Output decimals to serial
-[ ] Add calibration routine (?)
-[ ] Manual calibration
-[x] Fix dead area at outer most right side
-    Note: fixing touch-release bug fixed this one as well
 */
 
 int xvals[OVERSAMPLING] {0};
 int yvals[OVERSAMPLING] {0};
-// int *p;
-float xval;
-float yval;
+int *p;
 
 void setup() {
   cli();
-  // Setting unused pins as Input and activate pull-ups
+  // Setting unused pins as Input and activate pull-ups. (p. 71)
   DDRB = 0x00;
   PORTB = 0xFF;
   DDRC = 0x80;                                              // LED_BUILTIN (PC7) as output
@@ -56,10 +46,6 @@ void setup() {
   // See p. 300 ff
   ADCSRA |= (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);
 
-  // Configuring Timer0
-  TCCR0B |= (1<<CS01) | (1<<CS00);                          // Prescaler to 64 -> Translates to 250kHz or 4us/cycle
-  OCR0A = 24;                                               // ADC Sample-and-hold 1.5cycles -> 12us. Thus, TOCM trigger at 24
-
   /*
   Configuring interrupts (p. 89)
   ISCn1    ISCn0   Description
@@ -75,37 +61,40 @@ void setup() {
   Serial.begin(115200);
   Mouse.begin();
 
-  delay(300);
+  delay(100);
 }
 
-
-
 void loop() {
-  // delay(1);
+  delay(5);
+  float xval;
+  float yval;
 
   if (isFingered()) {
+
     for (int i = 0; i < OVERSAMPLING; i++) {
       xvals[i] = readX();
     }
-    // xval = readX();
+
     if (isFingered()) {
       for (int i = 0; i < OVERSAMPLING; i++) {
         yvals[i] = readY();
       }
+
       xval = doSomeMedianFiltering(xvals, OVERSAMPLING, CLAMP);
       yval = doSomeMedianFiltering(yvals, OVERSAMPLING, CLAMP);
 
       // Mouse control values are only send if MOUSE_EN (PIND6) is pulled LOW,
       // else positional vales are sent over serial
       if (!(PIND & (1<<MOUSE_EN))) {
-        xval = map(xval, XMIN, XMAX, -MOUSE_SPEED, MOUSE_SPEED);
-        yval = map(yval, YMIN, YMAX, MOUSE_SPEED, -MOUSE_SPEED);
+        xval = myMap(xval, XMIN, XMAX, -MOUSE_SPEED, MOUSE_SPEED);
+        yval = myMap(yval, YMIN, YMAX, MOUSE_SPEED, -MOUSE_SPEED);
         Mouse.move(xval, yval, 0);
-        // Serial.print(xval);Serial.print("\t");Serial.println(yval);
         delay(MOUSE_DELAY);
       } else {
-        xval = map(xval, XMIN, XMAX+1.0, 5*WIDTH, -5*WIDTH+1)/10.0;
-        yval = map(yval, YMIN, YMAX+1.0, -5*HEIGHT, 5*HEIGHT+1)/10.0;
+        #ifdef MAPPING
+        xval = myMap(xval, XMIN, XMAX, WIDTH*.5, -WIDTH*.5);
+        yval = myMap(yval, YMIN, YMAX, -HEIGHT*.5, HEIGHT*.5);
+        #endif
         Serial.print(xval,1);Serial.print("\t");Serial.println(yval,1);
       }
     }
@@ -119,12 +108,4 @@ ISR(INT0_vect){
   } else {
     PORTC |= (1<<LED_L);                                    // LED_L on
   }
-}
-
-ISR(TIMER0_COMPA_vect) {
-  // setTOCM(false);
-  DDRF |= (1<<DDF5) | (1<<DDF4);                            // PF5 and PF4 as output
-  PORTF |= (1<<PORTF5) | (1<<PORTF4);                       // PF5 and PF4 HIGH
-  // DDRF = 0x30;
-  // PORTF = 0x30;
 }
