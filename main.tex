@@ -1,23 +1,23 @@
 % **************************************************
 %   Wichtig für die verwendung der hsrmreport-Klasse!
-%   
+%
 %   Die Datei hsrmreport.cls muss in dem selben Ordner sein
 %   wie die .tex Datei die diese Klasse verwenden möchte.
 %
-%   Desweiteren ist die Dokumentenklasse nach aktuellem 
-%   noch ohnen Optionen, sprich Zweiseitig, änderung 
-%   der Schriftgröße oder ähnliches. Ich werde versuchen 
-%   diese Features hinzu zufügen sobald es mir möglich ist. 
+%   Desweiteren ist die Dokumentenklasse nach aktuellem
+%   noch ohnen Optionen, sprich Zweiseitig, änderung
+%   der Schriftgröße oder ähnliches. Ich werde versuchen
+%   diese Features hinzu zufügen sobald es mir möglich ist.
 %
 %   Falls Ihr Probleme, Anregungen oder Verbesserungen habt,
 %   könnt ihr mir das gerne mitteilenen.
 %
-%   Es kann sein das ihr evtl. manche Packete noch installieren 
+%   Es kann sein das ihr evtl. manche Packete noch installieren
 %   müsst bevor die Klasse Fehlerfrei funktioniert.
 %   Meldungen wie "Command terminated with space." können ignoriert werden.
 %
 %   Ich werde auch eine Übersicht aller Pakete schreiben, die ich verwendet habe.
-%      
+%
 %
 %   E-Mail: timjonas.wechler@student.hs-rm.de
 % **************************************************
@@ -35,8 +35,8 @@
 \newcommand{\versuchsdurchfuehrungDatum}{4. Februrar 2022}
 \newcommand{\AbgabeOrt}{Rüsselsheim am Main}
 
-%Falls ihr weniger als vier Studenten seit könnt ihr dies Einträge die zu viel sind einfach löschen. 
-%Ein Feature für das angeben der Mat.Nr. ist noch in Arbeit. 
+%Falls ihr weniger als vier Studenten seit könnt ihr dies Einträge die zu viel sind einfach löschen.
+%Ein Feature für das angeben der Mat.Nr. ist noch in Arbeit.
 \newcommand{\studentA}{Dennis Hunter}
 \newcommand{\matStudentA}{()}
 \newcommand{\studentB}{Tim-Jonas Wechler}
@@ -51,7 +51,11 @@
 
 
 \usepackage{datatool}
-
+\usepackage{babel}
+\usepackage{cleveref}
+\usepackage{microtype}
+\usepackage{listings}
+\bibliography{bib-refs_DH}
 
 
 % Mit dem Befehl \today wird immer das aktuelle Datum auf der Titelseite ausgebeben.
@@ -69,84 +73,11 @@
 
     \input{content/chapter-einleitung.tex}
     \input{content/chapter-versuchsaufbau.tex}
+    \input{content/chapter-implementierung.tex}
     \input{content/chapter-aufnahme_von_koordinaten.tex}
-    \input{content/chaper-untersuchung_der_messdaten.tex}
+    \input{content/chapter-untersuchung_der_messdaten.tex}
     \input{content/chapter-fazit.tex}
-  
-
     \appendix
-    \chapter{Anhang}
-        \section{Touchscreen}
-            \label{ds:touch}
-            \includepdf[pages=-]{append/4_wire_standard_ds_rohs-10613.pdf}
-        \section{Messdaten}
-            \begin{table}[ht!]
-                \begin{minipage}{0.49\linewidth}
-                    \centering
-                    \caption{Wertetabelle der gefilterten Genauigkeit}
-                    \DTLsetseparator{;}
-                    \DTLloaddb{scores}{messung/genauigkeitfiltered.csv}
-                    \begin{tabular}{|c|c|}%
-                        \hline x (ADC)& y (ADC)% specify table head
-                        \DTLforeach{scores}{\x=x,\y=y}
-                        {\\\hline\x & \y}\\
-                        \hline
-                    \end{tabular}
-                    \label{tab:messgenaufilter}
-                \end{minipage}
-                \begin{minipage}{0.49\linewidth}
-                    \centering
-                    \caption{Wertetabelle der ungefilterten Genauigkeit}
-                    \DTLsetseparator{;}
-                    \DTLloaddb{score}{messung/genauigkeitunfiltered.csv}
-                    \begin{tabular}{|c|c|}%
-                        \hline x (ADC) & y (ADC)% specify table head
-                        \DTLforeach{score}{\x=x,\y=y}
-                        {\\\hline\x & \y}\\
-                        \hline
-                    \end{tabular}
-                    \label{tab:messgenauunfilter}
-                \end{minipage}
-            \end{table}
-            \begin{table}[ht!]
-                    \centering
-                    \caption{Wertetabelle der Reproduzierbarkeit von Koordinaten}
-                    \DTLsetseparator{;}
-                    \DTLloaddb{scoreWieder}{messung/wiederholung.csv}
-                    \begin{tabular}{|c|c|}%
-                        \hline x (ADC)& y (ADC)% specify table head
-                        \DTLforeach{scoreWieder}{\x=x,\y=y}
-                        {\\\hline\x & \y}\\
-                        \hline
-                    \end{tabular}
-                    \label{tab:messwiederholung}
-            \end{table}
-            \begin{table}[ht!]
-                \begin{minipage}{0.49\linewidth}
-                    \centering
-                    \caption{Wertetabelle der Linearität in x-Richtung}
-                    \DTLsetseparator{;}
-                    \DTLloaddb{scorexl}{messung/xlinearitaet.csv}
-                    \begin{tabular}{|c|c|}%
-                        \hline x (ADC)& y (ADC)% specify table head
-                        \DTLforeach{scorexl}{\x=x,\y=y}
-                        {\\\hline\x & \y}\\
-                        \hline
-                    \end{tabular}
-                    \label{tab:messgenaufilter}
-                \end{minipage}
-                \begin{minipage}{0.49\linewidth}
-                    \centering
-                    \caption{Wertetabelle der Linearität in y-Richtung}
-                    \DTLsetseparator{;}
-                    \DTLloaddb{scoreyl}{messung/ylinearitaet.csv}
-                    \begin{tabular}{|c|c|}%
-                        \hline x (ADC) & y (ADC)% specify table head
-                        \DTLforeach{scoreyl}{\x=x,\y=y}
-                        {\\\hline\x & \y}\\
-                        \hline
-                    \end{tabular}
-                    \label{tab:messgenauunfilter}
-                \end{minipage}
-            \end{table}
+    \input{content/appendixA.tex}
+    \input{content/appendixB.tex}
 \end{document}
