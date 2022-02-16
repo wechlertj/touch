@@ -290,6 +290,7 @@
 		singlelinecheck=false,					% 	- no centered single-lined captions
 		justification=centering
 	]{caption}
+	\RequirePackage{svg}
 	\RequirePackage{subcaption}
 	\RequirePackage{graphicx}					% Das Standardpaket zum Einbinden von Bildern / Grafiken. 
 	\RequirePackage{wrapfig}					% Mit oder von Schrift umflossen Bilder.
