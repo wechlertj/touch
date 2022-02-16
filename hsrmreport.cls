@@ -77,7 +77,7 @@
 		\ProcessOptionsX[rep]<hsrm>
 		
 		% Checks if bib file exists, if not we throw an error
-		\IfFileExists{\hsrm@bibfile.bib}{}{\PackageError{hsrm}{Es ist mir nicht möglich die BibTeX-Datei mit dem Namen:"\hsrm@bibfile.bib" zu finden! Bitte stell sicher das eine BibTeX-Datei im Hauptverzeichnis zu finden ist.}{}}
+		\IfFileExists{\hsrm@bibfile.bib}{}{\PackageError{hsrm}{Es ist mir nicht möglich die BibTeX-Datei mit dem Namen:"\hsrm@bibfile.bib" zu finden! Bitte stell sicher, dass eine BibTeX-Datei im Hauptverzeichnis zu finden ist.}{}}
 		
 		% Prüft ob das Hochschul Logo vorhanden ist
 		\IfFileExists{gfx/logo_hsrm.png}{}{\PackageError{hsrm}{Es war mir nicht die Datei "logo_hsrm.png" im Ordner "gfx" zu finden! Bitte stell sicher, dass der Ordner "gfx" im aktuellen Projekt zu finden ist. Du kannst aus einem älternen Projekt diese Datei oder auch Ordner kopieren.}{Falls denoch Probleme auftauchen melde dich bei: timjonas.wechler@student.hs-rm.de}}
