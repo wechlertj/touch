@@ -1,20 +1,20 @@
 \chapter{Untersuchung der Messdaten}
 Um eine Aussage über die Qualität des Touchscreen treffen zu können, werden mehrere Untersuchungen angestellt. 
 
-Bei der ersten Untersuchung wird auf die Mitte des Touchscreen gedrückt und die Position wird für eine gewisse Zeit gehalten.
-Die Daten werden anschließen ausgewertet (siehe Abschnitt \ref{ab:genau}).
+Bei der ersten Untersuchung wurde auf die Mitte des Touchscreen gedrückt und die Position für eine gewisse Zeit gehalten.
+Es wurden hierfür gefilterte und ungefilterte Messreihen erstellt (siehe Abschnitt \ref{ab:genau}).
 
-Um die erste Untersuchung zu erweitern wird nun die Mitte des Touchscreen wiederholt gedrückt. Hier bei soll die Wiederholbarkeit eines Punktes auf dem Touchscreen untersucht werden. 
+Um die erste Untersuchung zu erweitern wurde die Mitte des Touchscreen, in der nächsten Untersuchung, wiederholt gedrückt. Hierbei ist die Wiederholbarkeit eines Punktes auf dem Touchscreen untersucht worden. 
 Die Auswertung ist in Abschnitt \ref{ab:wiederholung} zu finden.
 
-Bei der letzten Untersuchung wird die Linearität des Touchscreen untersucht. Hierfür gibt der Hersteller eine Garantie, unter der sich die Linearität des Touchscreen befinden soll. 
-Den Wert der angegeben wird liegt bei \SI{1,5}{\%} (siehe \ref{ds:touch} Seite 3 des Datenblatts).
+Bei der letzten Untersuchung wurde die Linearität des Touchscreen untersucht. Hierfür gibt der Hersteller eine Garantie, unter der sich die Linearität des Touchscreen befinden soll. 
+Den Wert der angegeben wird liegt bei \SI{1,5}{\%} (siehe \ref{ds:touch} Seite 3 des Datenblatts). 
 
 Um die Nachfolgende Untersuchungen korrekt durchführen zu können muss zu nächst der Reaktionsbereich des Touchscreens ermittelt werden.
 Durch seine Bauform hat dies einen Randbereich an dem es nicht zuverlässig Werte ausgibt. Umkehrschluss, das Programm erkennt nicht das etwas den Touchscreen betätigt. 
-Im Datenblatt werden Werte für den Bereich genannt in dem es zuverlässig arbeitet. In X-Richtung hat der Touchscreen einen Arbeitsbereich von \SI{214,5}{mm} und in Y-Richtung eine Bereich von \SI{161,0}{mm}. Diese Werte wurden durch Messungen ermittelt..
+Durch Untersuchungen des Randbereichs wurde in X-Richtung ein Arbeitsbereich von \SI{214,5}{mm} und in Y-Richtung eine Bereich von \SI{161,0}{mm} ermittelt.
 
-Durch Ausprobieren wurden die maximal und minimal ADC-Werte in die jeweilige Richtung ermittelt. 
+Durch Ausprobieren wurden die maximal und minimal ADC-Werte in die jeweilige Richtung ebenfalls ermittelt. 
 \begin{table}[ht!]
     \caption{maximal und minimal ADC-Werte}
     \begin{center}
@@ -45,9 +45,12 @@ Im zweiten Durchlauf wurden die direkten und ungefilterte Werte ausgegeben. Hier
 In den Abbildungen \ref{fig:filtered} und \ref{fig:unfiltered} sind die Messdaten der x- und y-Komponenten aufgetragen (siehe Seite \pageref{fig:filtered}).
 
 Die Auswertung der Messdaten ist in Tabelle \ref{tab:genaufilter} und \ref{tab:genauunfilter} zu finden.
-Bei der Auswertung ist zu beachten das es um zwei separate Messreihen handelt. Daher hat auch die ungefilterte Messreihe eine Standardabweichung und Varianz von Null, im Vergleich zur gefilterten Messreihe.
-Im Normalbetrieb ist der Medianfilter im Programm aktiv, daher haben die Werte der gefilterten Messreihe eine höhere Relevanz. 
-Die Genauigkeit des Touchscreen in beiden Messreihen ist kleiner als die Auflösung, was auf ein akkurat arbeitenden Touchscreen schließen lässt.
+Bei der Auswertung ist zu beachten das es um zwei separate Messreihen handelt. 
+Die Messreihe der ungefilterten Werte weißt eine höhere Genauigkeit auf als die gefilterten Werte. Daraus lässt sich folgendes Ableiten. 
+Zum einen ist das Messverfahren, der Rohdaten, gut umgesetzt und weißt eine hohe Präzision auf. Zum anderen gibt es ein Hinweis darauf, dass die eigens geschrieben Filterfunktion nicht akkurat arbeitet.
+
+
+
 \begin{table}[ht!]
     \caption{Auswertung der gefilterten Messdaten }
     \begin{center}
@@ -87,8 +90,13 @@ Die Genauigkeit des Touchscreen in beiden Messreihen ist kleiner als die Auflös
 
 \section{Reproduzierbarkeit von Koordinaten}
 \label{ab:wiederholung}
-Um die Reproduzierbarkeit von Koordinaten zu untersuchen, wurde die Mitte des Touchscreen mehrmals berührt während die Messdaten aufgezeichnet wurden. 
-Die Auswertung der Messdaten sind in Tabelle \ref{tab:wiederholung} zu sehen. Aus den Werten kann man sagen, dass die Genauigkeit der Auflösung entspricht.
+Um die Reproduzierbarkeit von Koordinaten zu untersuchen, wurde die Mitte des Touchscreen mehrmals berührt. Dabei wurden die ADC-Werte aufgezeichnet.
+Ein Ausschnitt zu dieser Messreihe ist im Anhang auf Seite \pageref{tab:messwiederholung}. Die Messreihe wurde ebenfalls in einem Diagramm (Abb. \ref{fig:wiederholung} auf Seite \pageref{fig:wiederholung}) aufgetragen.
+
+Die Auswertung der Messdaten sind in Tabelle \ref{tab:wiederholung} zu sehen. 
+Diese zeigt, dass die Standardabweichung ähnlich der Auflösung. Dies lässt ebenfalls auf ein akkurat arbeitender Touchscreen schließen.
+
+
 \begin{table}[ht!]
     \caption{Auswertung der Reproduzierbarkeit von Koordinaten}
     \begin{center}
@@ -112,19 +120,19 @@ Die Auswertung der Messdaten sind in Tabelle \ref{tab:wiederholung} zu sehen. Au
 \end{figure}
 \section{Linearität in x- und y-Richtung}
 \label{ab:linear}
-Um eine Aussage über die Linearität des Touchscreens treffen zu können, wurden in x- und y-Richtung, auf dem Touchscreen alle \SI{10}{mm} eine Markierung gesetzt (siehe \ref{fig:messlinear}).
+Um eine Aussage über die Linearität des Touchscreens treffen zu können, wurden in x- und y-Richtung, auf dem Touchscreen alle \SI{10}{mm} eine Markierung gesetzt (siehe Abb. \ref{fig:messlinear}).
 
 Die jeweilige Komponenten wurde anschließend jeweils über die physikalische Strecke in einem Diagramm dargestellt (siehe Abb. \ref{fig:xlinear} und Abb. \ref{fig:ylinear}). 
-Die Messwerte wurden mittels einer linearen Anpassung gefittet (siehe Abb. \ref{fig:xfit} und Abb. \ref{fig:yfit}).
+Die Messwerte wurden mittels einer linearen Anpassung anschließend ausgewertet (siehe Abb. \ref{fig:xfit} und Abb. \ref{fig:yfit}).
 
-Das \(\chi^2\) gibt Auskunft darüber in welchem Maß Werte miteinander sich verändern. 
+Das \(\chi^2\) gibt Auskunft darüber in welchem Maß Werte miteinander zusammenhängen. 
 Je kleiner dieser Wert ist desto eher stimmt die Linearität überein. Bei der linearen Anpassung in x-Richtung wurde ein \(\chi^2\) von \(0,294\) ermittelt. Für die Linearität in y-Richtung wurde ein \(\chi^2\) von \(5,946\) ermittelt.
 
-Dadurch das in der Messung bei Abstand 40 mm ein Messpunkt weit von der Messpunktewolke und der dazugehörigen linearen Anpassung abweicht, verzerrt dieser das Ergebnis.
+Bei der Untersuchung, der Linearität in y-Richtung, gibt es bei Abstand 40 mm ein Messpunkt der von der Messpunktewolke und der dazugehörigen linearen Anpassung abweicht. Dieser Messpunkt führt zu diesem größeren \(\chi^2\) als im Vergleich zur Messreihe  in x-Richtung.
 
-Um Abschließend eine Aussage treffen zu können, ob diese Werte im Wertebereich des Datenblatts sind (Anhang \ref{ds:touch}, Seite \pageref{ds:touch}), muss der Grenzwert der Chi-Quadrat-Verteilung mit den Werten der Linearen Anpassung verglichen werden.
-Im Datenblatt wird eine Linearität von \SI{1,5}{\%} garantiert. In der Wertetabelle von \cite{papula} gibt es nur Werte für \SI{1}{\%} oder \SI{2,5}{\%}. Der gelistete Wert für zwei Freiheitsgrade und für \SI{1}{\%} liegt bei 7,88.
-Sowohl das \(\chi^2\) in x-Richtung wie auch in y-Richtung ist kleiner diesem Werte. Dies hat zur Folge, dass dieser Touchscreen eine Linearität von unter \SI{1}{\%} aufweist.
+Um Abschließend eine Aussage treffen zu können, ob diese Werte den Angaben des Datenblatts entsprechen (Anhang \ref{ds:touch}, Seite \pageref{ds:touch}), muss der Grenzwert der Chi-Quadrat-Verteilung mit den Werten der Linearen Anpassung verglichen werden.
+Im Datenblatt wird eine Linearität von \SI{1,5}{\%} garantiert. In der Wertetabelle von \cite{papula} gibt es nur Grenzwerte für \SI{1}{\%} oder \SI{2,5}{\%}. Der gelistete Wert für zwei Freiheitsgrade und \SI{1}{\%} liegt bei 7,88.
+Sowohl das \(\chi^2\) in x-Richtung wie auch in y-Richtung ist kleiner dieser Werte. Dies lässt darauf Schließen, dass dieser Touchscreen eine Linearität von unter \SI{1}{\%} aufweist.
 \begin{figure}
     \begin{minipage}{0.49\linewidth}
         \centering

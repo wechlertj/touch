@@ -15,14 +15,14 @@
 \contentsline {section}{\numberline {4.1}Genauigkeit bei konstanten Koordinaten}{8}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Reproduzierbarkeit von Koordinaten}{10}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Linearität in x- und y-Richtung}{10}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Fazit}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Qualität der Erkenntnisse}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Verbesserungsvorschläge}{13}{section.5.2}%
-\contentsline {chapter}{\numberline {A}Anhang}{14}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Touchscreen}{14}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Messdaten}{19}{section.A.2}%
-\contentsline {chapter}{\nonumberline Literatur}{20}{chapter*.16}%
-\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{21}{chapter*.17}%
-\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{22}{chapter*.18}%
-\contentsline {chapter}{\nonumberline Programmcodeverzeichnis}{23}{chapter*.19}%
+\contentsline {chapter}{\numberline {5}Fazit}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Qualität der Erkenntnisse}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Verbesserungsvorschläge}{14}{section.5.2}%
+\contentsline {chapter}{\numberline {A}Anhang}{15}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Touchscreen}{15}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Messdaten}{20}{section.A.2}%
+\contentsline {chapter}{\nonumberline Literatur}{23}{chapter*.18}%
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{24}{chapter*.19}%
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{25}{chapter*.20}%
+\contentsline {chapter}{\nonumberline Programmcodeverzeichnis}{26}{chapter*.21}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

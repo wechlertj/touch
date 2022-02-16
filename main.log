@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.14)  15 FEB 2022 18:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.14)  16 FEB 2022 14:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1769,7 +1769,14 @@ Package: datatool 2019/09/27 v2.32 (NLCT)
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 63.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.aux)
+) (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.aux
+
+LaTeX Warning: Label `tab:messgenaufilter' multiply defined.
+
+
+LaTeX Warning: Label `tab:messgenauunfilter' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -2060,12 +2067,12 @@ chapter 1.
 <fig/4-wire.jpg, id=141, 515.526pt x 428.802pt>
 File: fig/4-wire.jpg Graphic file (type jpg)
 <use fig/4-wire.jpg>
-Package pdftex.def Info: fig/4-wire.jpg  used on input line 30.
+Package pdftex.def Info: fig/4-wire.jpg  used on input line 31.
 (pdftex.def)             Requested size: 273.14928pt x 227.20508pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 \subsection
+l.35 \subsection
                 {Arduino Leonardo Board} [1
 
 
@@ -2081,7 +2088,7 @@ Package pdftex.def Info: fig/aufbau_annotated.jpg  used on input line 5.
 
  </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/aufbau_annotated.jpg>]
 chapter 3.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 22.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 21.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -2122,53 +2129,53 @@ chapter 4.
 <fig/filtered.png, id=219, 1011.78pt x 650.43pt>
 File: fig/filtered.png Graphic file (type png)
 <use fig/filtered.png>
-Package pdftex.def Info: fig/filtered.png  used on input line 77.
+Package pdftex.def Info: fig/filtered.png  used on input line 80.
 (pdftex.def)             Requested size: 455.24417pt x 292.66101pt.
 <fig/unfiltered.png, id=220, 1011.78pt x 650.43pt>
 File: fig/unfiltered.png Graphic file (type png)
 <use fig/unfiltered.png>
-Package pdftex.def Info: fig/unfiltered.png  used on input line 81.
+Package pdftex.def Info: fig/unfiltered.png  used on input line 84.
 (pdftex.def)             Requested size: 455.24417pt x 292.66101pt.
  [8] [9 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/filtered.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/unfiltered.png>]
-<fig/wiederholung.png, id=237, 1011.78pt x 650.43pt>
+<fig/wiederholung.png, id=240, 1011.78pt x 650.43pt>
 File: fig/wiederholung.png Graphic file (type png)
 <use fig/wiederholung.png>
-Package pdftex.def Info: fig/wiederholung.png  used on input line 109.
+Package pdftex.def Info: fig/wiederholung.png  used on input line 117.
 (pdftex.def)             Requested size: 455.24417pt x 292.66101pt.
  [10 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/wiederholung.png>]
-<fig/xfit.png, id=256, 698.61pt x 417.56pt>
+<fig/xfit.png, id=258, 698.61pt x 417.56pt>
 File: fig/xfit.png Graphic file (type png)
 <use fig/xfit.png>
-Package pdftex.def Info: fig/xfit.png  used on input line 131.
+Package pdftex.def Info: fig/xfit.png  used on input line 139.
 (pdftex.def)             Requested size: 223.07214pt x 133.32883pt.
-<fig/yfit.png, id=257, 703.62875pt x 423.5825pt>
+<fig/yfit.png, id=259, 703.62875pt x 423.5825pt>
 File: fig/yfit.png Graphic file (type png)
 <use fig/yfit.png>
-Package pdftex.def Info: fig/yfit.png  used on input line 137.
+Package pdftex.def Info: fig/yfit.png  used on input line 145.
 (pdftex.def)             Requested size: 223.07214pt x 134.28882pt.
-<fig/messlinear.jpg, id=258, 386.44376pt x 290.08376pt>
+<fig/messlinear.jpg, id=260, 386.44376pt x 290.08376pt>
 File: fig/messlinear.jpg Graphic file (type jpg)
 <use fig/messlinear.jpg>
-Package pdftex.def Info: fig/messlinear.jpg  used on input line 144.
+Package pdftex.def Info: fig/messlinear.jpg  used on input line 152.
 (pdftex.def)             Requested size: 273.14928pt x 205.04022pt.
-<fig/8_linearitaet_x.png, id=259, 1011.78pt x 578.16pt>
+<fig/8_linearitaet_x.png, id=261, 1011.78pt x 578.16pt>
 File: fig/8_linearitaet_x.png Graphic file (type png)
 <use fig/8_linearitaet_x.png>
-Package pdftex.def Info: fig/8_linearitaet_x.png  used on input line 151.
+Package pdftex.def Info: fig/8_linearitaet_x.png  used on input line 159.
 (pdftex.def)             Requested size: 455.24417pt x 260.14313pt.
-<fig/8_linearitaet_y.png, id=260, 1011.78pt x 578.16pt>
+<fig/8_linearitaet_y.png, id=262, 1011.78pt x 578.16pt>
 File: fig/8_linearitaet_y.png Graphic file (type png)
 <use fig/8_linearitaet_y.png>
-Package pdftex.def Info: fig/8_linearitaet_y.png  used on input line 154.
+Package pdftex.def Info: fig/8_linearitaet_y.png  used on input line 162.
 (pdftex.def)             Requested size: 455.24417pt x 260.14313pt.
-) (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/content/chapter-fazit.tex [11 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/xfit.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/yfit.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/messlinear.jpg>] [12 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/8_linearitaet_x.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/8_linearitaet_y.png>]
+) (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/content/chapter-fazit.tex [11 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/xfit.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/yfit.png>] [12 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/messlinear.jpg>] [13 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/8_linearitaet_x.png> </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/fig/8_linearitaet_y.png>]
 chapter 5.
-) [13
+) [14
 
 
 ]
 chapter A.
-<append/4_wire_standard_ds_rohs-10613.pdf, id=279, 614.295pt x 794.97pt>
+<append/4_wire_standard_ds_rohs-10613.pdf, id=287, 614.295pt x 794.97pt>
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
 <use append/4_wire_standard_ds_rohs-10613.pdf>
 Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf  used on input line 81.
@@ -2177,7 +2184,7 @@ File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
 <use append/4_wire_standard_ds_rohs-10613.pdf>
 Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf  used on input line 81.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<append/4_wire_standard_ds_rohs-10613.pdf, id=282, page=1, 614.295pt x 794.97pt>
+<append/4_wire_standard_ds_rohs-10613.pdf, id=290, page=1, 614.295pt x 794.97pt>
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
 <use append/4_wire_standard_ds_rohs-10613.pdf, page 1>
 Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page1 used on input line 81.
@@ -2186,7 +2193,7 @@ File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
 <use append/4_wire_standard_ds_rohs-10613.pdf, page 1>
 Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page1 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-[14
+[15
 
 
 ]
@@ -2202,49 +2209,49 @@ File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
 <use append/4_wire_standard_ds_rohs-10613.pdf, page 1>
 Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page1 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [15 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/append/4_wire_standard_ds_rohs-10613.pdf>]
-<append/4_wire_standard_ds_rohs-10613.pdf, id=351, page=2, 614.295pt x 794.97pt>
-File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [16 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/append/4_wire_standard_ds_rohs-10613.pdf>]
-<append/4_wire_standard_ds_rohs-10613.pdf, id=370, page=3, 614.295pt x 794.97pt>
+<append/4_wire_standard_ds_rohs-10613.pdf, id=359, page=2, 614.295pt x 794.97pt>
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 2>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page2 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [17 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/append/4_wire_standard_ds_rohs-10613.pdf>]
-<append/4_wire_standard_ds_rohs-10613.pdf, id=400, page=4, 614.295pt x 794.97pt>
+<append/4_wire_standard_ds_rohs-10613.pdf, id=379, page=3, 614.295pt x 794.97pt>
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
-<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
-Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 3>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page3 used on input line 81.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [18 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/append/4_wire_standard_ds_rohs-10613.pdf>]
+<append/4_wire_standard_ds_rohs-10613.pdf, id=408, page=4, 614.295pt x 794.97pt>
+File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+File: append/4_wire_standard_ds_rohs-10613.pdf Graphic file (type pdf)
+<use append/4_wire_standard_ds_rohs-10613.pdf, page 4>
+Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used on input line 81.
+(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
+ [19 </Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/append/4_wire_standard_ds_rohs-10613.pdf>]
 \dtldb@scores=\toks99
 \dtlkeys@scores=\toks100
 \dtlrows@scores=\count635
@@ -2253,41 +2260,61 @@ Package pdftex.def Info: append/4_wire_standard_ds_rohs-10613.pdf , page4 used o
 \dtlkeys@score=\toks102
 \dtlrows@score=\count637
 \dtlcols@score=\count638
- [19]
+\dtldb@scoreWieder=\toks103
+\dtlkeys@scoreWieder=\toks104
+\dtlrows@scoreWieder=\count639
+\dtlcols@scoreWieder=\count640
+\dtldb@scorexl=\toks105
+\dtlkeys@scorexl=\toks106
+\dtlrows@scorexl=\count641
+\dtlcols@scorexl=\count642
+\dtldb@scoreyl=\toks107
+\dtlkeys@scoreyl=\toks108
+\dtlrows@scoreyl=\count643
+\dtlcols@scoreyl=\count644
+ [20]
+
+LaTeX Warning: Text page 21 contains only floats.
+
+[21]
+
+LaTeX Warning: Text page 22 contains only floats.
+
+[22]
 chapter without number
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
-[20
+[23
 
 
 ]
-Package tocbasic Info: character protrusion at lof deactivated on input line 111.
+Package tocbasic Info: character protrusion at lof deactivated on input line 152.
  (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.lof)
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
- [21
+ [24
 
 
 ]
-Package tocbasic Info: character protrusion at lot deactivated on input line 111.
+Package tocbasic Info: character protrusion at lot deactivated on input line 152.
  (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.lot)
 \tf@lot=\write10
 \openout10 = `main.lot'.
 
- [22
+ [25
 
 
 
 
 ]
-Package tocbasic Info: character protrusion at lol deactivated on input line 111.
+Package tocbasic Info: character protrusion at lol deactivated on input line 152.
  (/Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.lol)
 \tf@lol=\write11
 \openout11 = `main.lol'.
 
- [23
+ [26
 
 
 
@@ -2297,6 +2324,9 @@ Package tocbasic Info: character protrusion at lol deactivated on input line 111
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: There were multiply-defined labels.
+
+
 Package biblatex Warning: Please rerun LaTeX.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -2304,18 +2334,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 75542 strings out of 478994
- 1728490 string characters out of 5858183
- 3001901 words of memory out of 5000000
- 91517 multiletter control sequences out of 15000+600000
- 530931 words of font info for 215 fonts, out of 8000000 for 9000
+ 75699 strings out of 478994
+ 1730448 string characters out of 5858183
+ 3028023 words of memory out of 5000000
+ 91539 multiletter control sequences out of 15000+600000
+ 530836 words of font info for 214 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 128i,20n,131p,10833b,2331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,21n,131p,10833b,2331s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on /Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.pdf (25 pages, 1505486 bytes).
+Output written on /Users/tim-jonaswechler/Documents/Mein_Leben/1_Karriere/10_Studium/hs-rm_ap_bsc/2021_WS/Embeeded_System/Touchscreen/main.pdf (28 pages, 1514281 bytes).
 PDF statistics:
- 725 PDF objects out of 1000 (max. 8388607)
- 575 compressed objects within 6 object streams
- 152 named destinations out of 1000 (max. 500000)
+ 907 PDF objects out of 1000 (max. 8388607)
+ 752 compressed objects within 8 object streams
+ 287 named destinations out of 1000 (max. 500000)
  81232 words of extra memory for PDF output out of 89155 (max. 10000000)
 

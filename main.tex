@@ -108,4 +108,45 @@
                     \label{tab:messgenauunfilter}
                 \end{minipage}
             \end{table}
+            \begin{table}[ht!]
+                    \centering
+                    \caption{Wertetabelle der Reproduzierbarkeit von Koordinaten}
+                    \DTLsetseparator{;}
+                    \DTLloaddb{scoreWieder}{messung/wiederholung.csv}
+                    \begin{tabular}{|c|c|}%
+                        \hline x (ADC)& y (ADC)% specify table head
+                        \DTLforeach{scoreWieder}{\x=x,\y=y}
+                        {\\\hline\x & \y}\\
+                        \hline
+                    \end{tabular}
+                    \label{tab:messwiederholung}
+            \end{table}
+            \begin{table}[ht!]
+                \begin{minipage}{0.49\linewidth}
+                    \centering
+                    \caption{Wertetabelle der Linearität in x-Richtung}
+                    \DTLsetseparator{;}
+                    \DTLloaddb{scorexl}{messung/xlinearitaet.csv}
+                    \begin{tabular}{|c|c|}%
+                        \hline x (ADC)& y (ADC)% specify table head
+                        \DTLforeach{scorexl}{\x=x,\y=y}
+                        {\\\hline\x & \y}\\
+                        \hline
+                    \end{tabular}
+                    \label{tab:messgenaufilter}
+                \end{minipage}
+                \begin{minipage}{0.49\linewidth}
+                    \centering
+                    \caption{Wertetabelle der Linearität in y-Richtung}
+                    \DTLsetseparator{;}
+                    \DTLloaddb{scoreyl}{messung/ylinearitaet.csv}
+                    \begin{tabular}{|c|c|}%
+                        \hline x (ADC) & y (ADC)% specify table head
+                        \DTLforeach{scoreyl}{\x=x,\y=y}
+                        {\\\hline\x & \y}\\
+                        \hline
+                    \end{tabular}
+                    \label{tab:messgenauunfilter}
+                \end{minipage}
+            \end{table}
 \end{document}
