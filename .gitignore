@@ -17,7 +17,12 @@
 *.cb
 *.cb2
 .*.lb
-
+*-blx.bib
+*.lol
+*.run.xml
+*.synctex.gz
+*.xdv
+**/*.xcf
 ## Intermediate documents:
 *.dvi
 *.xdv
