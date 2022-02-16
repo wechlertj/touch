@@ -151,8 +151,8 @@
 	\RequirePackage{setspace}
 	\RequirePackage[							% (https://www.namsu.de/Extra/pakete/Siunitx.html)
 		locale=DE,
-		%per-mode=symbol
-		per-mode = fraction
+		per-mode=symbol
+		% per-mode = fraction
 	]{siunitx} 	
 	\RequirePackage[							% advanced quotes (https://ctan.net/macros/latex/contrib/csquotes/csquotes.pdf)
 		strict=true,							% 	- warning are errors now
