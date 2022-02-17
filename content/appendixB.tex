@@ -1,0 +1,36 @@
+\chapter{Firmware}
+\definecolor{codelilas}{RGB}{170,55,241}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{c}{language=C++,%
+    basicstyle=\footnotesize,%
+    inputencoding=latin1,%
+    breaklines=true,%
+    stepnumber=2,% line numbering steps
+    morekeywords={ones,height,width,datetime},% additional keywords to highlight
+    keywordstyle=\color{blue},%
+    frame=none,%
+    identifierstyle=\color{black},%
+    stringstyle=\color{codelilas},%
+    commentstyle=\color{codegreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt,% this defines how far the numbers are from the text
+}
+\lstinputlisting[caption=Main, label=lst:main cpp, language=C++, style=c]{src/main.cpp}
+\newpage
+\lstinputlisting[caption=Helper Functions, label=lst:helper cpp, language=C++, style=c]{src/helper_functions.cpp}
+\newpage
+\lstinputlisting[caption=Defines, label=lst:defines h, language=C++, style=c]{src/defines.h}
+% \newpage
+% \begin{lstlisting}[language=c++]
+% 	\input{src/defines.cpp}
+% \end{lstlisting}
+% \newpage
+% \begin{lstlisting}[language=c++]
+% 	\input{src/helper_functions.cpp}
+% \end{lstlisting}
